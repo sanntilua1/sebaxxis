@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sebaxxis Inteligencia Artificial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://imgur.com/9WokhU6">
+</head>
+<body>
+  <canvas id="bgParticles"></canvas>
+  <div class="chat-shadow-epic"></div>
+  <div class="chat-widget" style="display: flex;">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <span class="chat-avatar">
+          <img src="https://i.imgur.com/9WokhU6.png" alt="sebaxxis" />
+        </span>
+        <div>
+          <div class="chat-title">
+            Sebaxxis IA
+            <span class="verified-badge" title="Verificado">
+              <svg viewBox="0 0 20 20" width="18" height="18" style="vertical-align:middle; margin-left:0.5px;">
+                <circle cx="10" cy="10" r="9" fill="#25F4EE" stroke="#fff" stroke-width="2"/>
+                <path d="M7.5 10.5l2 2 3-4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+          <div class="chat-subtitle">Asistente Premium</div>
+        </div>
+      </div>
+      <button class="chat-close" id="closeChat"><i class="fa fa-times"></i></button>
+    </div>
+    <div class="chat-body" id="chatMessages">
+      <div class="message-row user">
+        <div class="message-bubble">Mensaje del usuario</div>
+      </div>
+    </div>
+    <form class="chat-footer" id="chatForm" autocomplete="off">
+      <div class="chat-footer-row">
+        <button type="button" class="chat-extra" title="Extra"><i class="fa fa-plus"></i></button>
+        <input type="text" id="userInput" placeholder="Escribe tu mensaje..." autocomplete="off" required maxlength="3000" />
+        <button type="button" class="chat-think" id="thinkBtn" title="Pensar más">
+          <i class="fa fa-lightbulb"></i>
+          <span class="think-light"></span>
+        </button>
+        <button type="submit" class="chat-send" title="Enviar"><i class="fa fa-paper-plane"></i></button>
+      </div>
+      <div class="char-counter" id="charCounter">0 / 3000</div>
+      <!-- Debajo del botón .chat-extra, dentro del form -->
+      <input type="file" id="fileInput" accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display:none;">
+      <input type="file" id="imageInput" accept="image/*" style="display:none;">
+      <label for="imageInput" class="image-upload-btn" title="Subir imagen">
+      </label>
+    </form>
+  </div>
+  <div class="chat-border-glow"></div>
+  <button class="chat-fab" id="openChat" title="Abrir chat"><i class="fa fa-comments"></i></button>
+  <button id="burstBtn" style="position:fixed;bottom:-10px;left:0px;z-index:0;"></button>
+  <div id="deviceSelector" class="device-selector-overlay">
+  <div class="device-selector-box">
+    <h2>¿Desde dónde estás usando Sebaxxis IA?</h2>
+    <button class="device-btn" id="selectMobile"><i class="fa fa-mobile-alt"></i></button>
+    <button class="device-btn" id="selectPC"><i class="fa fa-desktop"></i></button>
+  </div>
+</div>
+  <div class="think-glow" id="thinkGlow"></div>
+  <script src="script.js"></script>
+  <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+</body>
+</html>
