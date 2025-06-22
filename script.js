@@ -267,7 +267,7 @@ window.onload = () => {
     '¡Hola! Si venís con hambre, este es tu lugar. Si no, también.',
     '¿Querés hablar de amigos, comida o inventamos algo? Yo me prendo.',
     '¿Probaste los sanguches de la esquina? Si no, te estás perdiendo la vida.',
-    '¡Santi me programó para responderte todo! Pero ojo, no me hagas laburar de más.',
+    '¡Santi me programó para responderte todo! Pero ojo, no me hagas laburar de más.'
   ];
   messages = [
     { 
@@ -349,6 +349,21 @@ function setDeviceMode(mode) {
 
 // Al cargar, muestra el selector y bloquea el chat hasta elegir
 window.addEventListener('DOMContentLoaded', () => {
+  const cfOverlay = document.getElementById('cf-verify-overlay');
+  // Genera un Ray ID falso (como Cloudflare)
+  function randomRayId() {
+    const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    let id = '';
+    for (let i = 0; i < 16; i++) id += chars[Math.floor(Math.random() * chars.length)];
+    return id;
+  }
+  const ray = document.getElementById('cf-ray');
+  if(ray) ray.textContent = randomRayId();
+  setTimeout(() => {
+    cfOverlay.style.opacity = '0';
+    cfOverlay.style.pointerEvents = 'none';
+    setTimeout(() => cfOverlay.remove(), 700);
+  }, 2500); // 2.5 segundos de espera
   deviceSelector.style.display = 'flex';
   deviceSelector.style.opacity = 1;
   document.body.classList.remove('mobile', 'pc');
