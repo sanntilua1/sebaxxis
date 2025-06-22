@@ -941,8 +941,119 @@ body.pc .chat-fab {
   filter: blur(10px);
 }
 
-@keyframes thinkGlowReal {
-  0%   { opacity: 0.7; filter: blur(4px);}
-  60%  { opacity: 1; filter: blur(16px);}
-  100% { opacity: 0.85; filter: blur(8px);}
+#cf-verify-overlay {
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, #232323f7 80%, #181818 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInOverlay 0.5s;
+  transition: opacity 0.5s;
+  backdrop-filter: blur(2.5px) brightness(0.95);
+}
+.cf-verify-box {
+  background: linear-gradient(135deg, #181818 80%, #232323 100%);
+  border-radius: 32px;
+  box-shadow:
+    0 8px 40px #232323cc,
+    0 0 0 12px #35353533 inset,
+    0 0 32px 0 #f3802022;
+  padding: 54px 44px 38px 44px;
+  text-align: center;
+  min-width: 340px;
+  max-width: 95vw;
+  color: #fff;
+  border: 3.5px solid #353535;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  animation: cfPopIn 0.7s cubic-bezier(.61,-0.01,.45,1.35);
+  position: relative;
+  overflow: visible;
+}
+
+.cf-logo {
+  width: 130px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 18px #f3802088) brightness(1.1);
+  user-select: none;
+  pointer-events: none;
+  animation: logoPulse 2.2s infinite alternate;
+}
+@keyframes logoPulse {
+  0% { filter: drop-shadow(0 4px 18px #f3802088) brightness(1.1);}
+  100% { filter: drop-shadow(0 8px 32px #f38020cc) brightness(1.18);}
+}
+
+.cf-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, #fff 60%, #f38020 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 8px #23232366;
+  animation: titleGlow 2.5s infinite alternate;
+}
+@keyframes titleGlow {
+  0% { text-shadow: 0 2px 8px #23232366;}
+  100% { text-shadow: 0 4px 18px #f3802088;}
+}
+
+.cf-spinner {
+  width: 44px;
+  height: 44px;
+  border: 5px solid #f38020;
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  margin: 18px auto 10px auto;
+  animation: cfSpin 0.85s linear infinite;
+  box-shadow: 0 0 16px #f3802044, 0 0 0 4px #23232333 inset;
+}
+@keyframes cfSpin {
+  0% { transform: rotate(0);}
+  100% { transform: rotate(360deg);}
+}
+
+.cf-desc {
+  font-size: 1.08em;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  line-height: 1.6;
+  background: rgba(35,35,35,0.55);
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 2px 12px #23232322;
+  border: 1.5px solid #353535;
+  animation: fadeInOverlay 1.2s;
+}
+
+.cf-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.08em;
+  color: #f38020;
+  margin-top: 12px;
+  font-weight: 700;
+  justify-content: center;
+  user-select: none;
+  letter-spacing: 0.5px;
+  background: #232323cc;
+  border-radius: 10px;
+  padding: 7px 18px 7px 10px;
+  box-shadow: 0 2px 12px #f3802022;
+  border: 1.5px solid #353535;
+  animation: fadeInOverlay 1.5s;
+}
+.cf-footer svg {
+  vertical-align: middle;
+  filter: drop-shadow(0 0 6px #f3802088);
+  animation: logoPulse 2.2s infinite alternate;
 }
